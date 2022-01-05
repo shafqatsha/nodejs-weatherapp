@@ -13,9 +13,10 @@ weatherForm.addEventListener('submit', (e) => {
   e.preventDefault()
 
   const location = search.value
+  console.log(location);
   message1.textContent = 'Loading ...'
   message2.textContent = ''
-  console.log('search', location);
+
   const url = `/weather?address=${location}`
   fetch(url).then((response) => {
     return response.json();
@@ -23,9 +24,8 @@ weatherForm.addEventListener('submit', (e) => {
   }).then((response) => {
     console.log(response);
     if (response.data) {
-      message1.textContent = response.data.temp_max
+      message1.textContent = response.data.main.temp_max
     }
-
     else {
       message1.textContent = ""
       message2.textContent = 'There is some error'

@@ -67,7 +67,6 @@ app.get('/weather', (req, res) => {
     })
   }
 
-
   geocode(req.query.address, (error, data) => {
 
     if (error) {
@@ -111,7 +110,7 @@ app.get('*', (req, res) => {
 
 })
 
-
+console.log(port);
 app.listen(port, () => {
   console.log('Server is up on port ' + port);
 })
